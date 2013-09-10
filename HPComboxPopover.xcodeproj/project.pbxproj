@@ -16,6 +16,10 @@
 		0918F68017DBB32E00AF942E /* libHPComboxPopover.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0918F66817DBB32E00AF942E /* libHPComboxPopover.a */; };
 		0918F68617DBB32E00AF942E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0918F68417DBB32E00AF942E /* InfoPlist.strings */; };
 		0918F68817DBB32E00AF942E /* HPComboxPopoverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0918F68717DBB32E00AF942E /* HPComboxPopoverTests.m */; };
+		09201DF517DBB6E70023B7A2 /* HPComboxPopoverGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09201DF417DBB6E70023B7A2 /* HPComboxPopoverGradientView.m */; };
+		09201DF717DBB8360023B7A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09201DF617DBB8360023B7A2 /* CoreGraphics.framework */; };
+		09201DF917DBB83C0023B7A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09201DF817DBB83C0023B7A2 /* QuartzCore.framework */; };
+		09201DFB17DBB8410023B7A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09201DFA17DBB8410023B7A2 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		0918F68317DBB32E00AF942E /* HPComboxPopoverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HPComboxPopoverTests-Info.plist"; sourceTree = "<group>"; };
 		0918F68517DBB32E00AF942E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0918F68717DBB32E00AF942E /* HPComboxPopoverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPComboxPopoverTests.m; sourceTree = "<group>"; };
+		09201DF317DBB6E70023B7A2 /* HPComboxPopoverGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPComboxPopoverGradientView.h; sourceTree = "<group>"; };
+		09201DF417DBB6E70023B7A2 /* HPComboxPopoverGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPComboxPopoverGradientView.m; sourceTree = "<group>"; };
+		09201DF617DBB8360023B7A2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		09201DF817DBB83C0023B7A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		09201DFA17DBB8410023B7A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		09201DFC17DBB8A50023B7A2 /* HPComboxPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HPComboxPopover.xib; sourceTree = "<group>"; };
+		09201DFD17DBBA950023B7A2 /* HPComboxPopoverCloseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPComboxPopoverCloseButton.png; sourceTree = "<group>"; };
+		09201DFE17DBBA950023B7A2 /* HPComboxPopoverCloseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HPComboxPopoverCloseButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09201DFB17DBB8410023B7A2 /* UIKit.framework in Frameworks */,
+				09201DF917DBB83C0023B7A2 /* QuartzCore.framework in Frameworks */,
+				09201DF717DBB8360023B7A2 /* CoreGraphics.framework in Frameworks */,
 				0918F66C17DBB32E00AF942E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +115,9 @@
 		0918F66A17DBB32E00AF942E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09201DFA17DBB8410023B7A2 /* UIKit.framework */,
+				09201DF817DBB83C0023B7A2 /* QuartzCore.framework */,
+				09201DF617DBB8360023B7A2 /* CoreGraphics.framework */,
 				0918F66B17DBB32E00AF942E /* Foundation.framework */,
 				0918F67917DBB32E00AF942E /* XCTest.framework */,
 				0918F67C17DBB32E00AF942E /* UIKit.framework */,
@@ -110,6 +128,11 @@
 		0918F66D17DBB32E00AF942E /* HPComboxPopover */ = {
 			isa = PBXGroup;
 			children = (
+				09201DFD17DBBA950023B7A2 /* HPComboxPopoverCloseButton.png */,
+				09201DFE17DBBA950023B7A2 /* HPComboxPopoverCloseButton@2x.png */,
+				09201DFC17DBB8A50023B7A2 /* HPComboxPopover.xib */,
+				09201DF317DBB6E70023B7A2 /* HPComboxPopoverGradientView.h */,
+				09201DF417DBB6E70023B7A2 /* HPComboxPopoverGradientView.m */,
 				0918F67017DBB32E00AF942E /* HPComboxPopover.h */,
 				0918F67217DBB32E00AF942E /* HPComboxPopover.m */,
 				0918F66E17DBB32E00AF942E /* Supporting Files */,
@@ -224,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09201DF517DBB6E70023B7A2 /* HPComboxPopoverGradientView.m in Sources */,
 				0918F67317DBB32E00AF942E /* HPComboxPopover.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +427,7 @@
 				0918F68D17DBB32E00AF942E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0918F68E17DBB32E00AF942E /* Build configuration list for PBXNativeTarget "HPComboxPopoverTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +436,7 @@
 				0918F69017DBB32E00AF942E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

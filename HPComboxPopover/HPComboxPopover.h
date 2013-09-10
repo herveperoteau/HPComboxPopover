@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface HPComboxPopover : NSObject
+@class HPComboxPopover;
+
+@protocol HPComboxPopoverDelegate <NSObject>
+
+- (void)didCancel:(HPComboxPopover *)sender;
+- (void)didSelectedItem:(NSString *)item sender:(HPComboxPopover *)sender;
+
+@end
+
+@interface HPComboxPopover : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, weak) id<HPComboxPopoverDelegate> delegate;
+@property (nonatomic, assign) NSInteger idxSelectedItem;
+
+- (void)presentInParentViewController:(UIViewController *)parentViewController;
+- (void)dismissFromParentViewController;
 
 @end
