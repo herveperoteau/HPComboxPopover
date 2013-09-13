@@ -15,15 +15,14 @@
     if ((self = [super initWithFrame:frame])) {
         self.backgroundColor = [UIColor clearColor];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        self.userInteractionEnabled = NO;
     }
+    
     return self;
 }
 
 - (void)dealloc
 {
-    NSLog(@"dealloc %@", self);
+    NSLog(@"dealloc %@", self.class);
 }
 
 - (void)drawRect:(CGRect)rect

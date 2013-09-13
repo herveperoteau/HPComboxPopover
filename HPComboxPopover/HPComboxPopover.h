@@ -14,7 +14,7 @@
 @protocol HPComboxPopoverDelegate <NSObject>
 
 - (void)didCancel:(HPComboxPopover *)sender;
-- (void)didSelectedItem:(NSString *)item sender:(HPComboxPopover *)sender;
+- (void)didSelectedItem:(id)item sender:(HPComboxPopover *)sender;
 
 @end
 

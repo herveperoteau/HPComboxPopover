@@ -58,6 +58,8 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
+    NSLog(@"%@.willRotateToInterfaceOrientation ...", self.class);
+    
     [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
     [self layoutForInterfaceOrientation:toInterfaceOrientation];
 }
@@ -77,18 +79,28 @@
         return;
     }
 
+    self.idxSelectedItem = row;
+    
     [self.delegate didSelectedItem:self.items[row] sender:self];
 }
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController
 {
+//    Bidouille ici pour la rendre completement modale sur tout le view controller
+//    Sinon si je clique sur le menu, les boutons sont actfs !!!
+//    Mais cette version bug en orientation Landscape, donc a utiliser uniquement
+//    dans une application en Portrait !!!
     
-    gradientView = [[HPComboxPopoverGradientView alloc] initWithFrame:parentViewController.view.bounds];
-    [parentViewController.view addSubview:gradientView];
+    UIWindow *keyWindow = [[[UIApplication sharedApplication] delegate] window];
+    
+    gradientView = [[HPComboxPopoverGradientView alloc] initWithFrame:keyWindow.bounds];
+    //[parentViewController.view addSubview:gradientView];
+    [keyWindow addSubview:gradientView];
     
     self.view.frame = parentViewController.view.bounds;
 	[self layoutForInterfaceOrientation:parentViewController.interfaceOrientation];
-    [parentViewController.view addSubview:self.view];
+    [gradientView addSubview:self.view];
+//    [parentViewController.view addSubview:self.view];
     [parentViewController addChildViewController:self];
     
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
@@ -129,10 +141,13 @@
 {
     [self didMoveToParentViewController:self.parentViewController];
     
-    NSLog(@"selectRow %d", self.idxSelectedItem);
+    if (self.idxSelectedItem >= 0) {
     
-    [self.picker reloadAllComponents];
-    [self.picker selectRow:self.idxSelectedItem inComponent:0 animated:YES];
+        //NSLog(@"selectRow %d", self.idxSelectedItem);
+    
+        [self.picker reloadAllComponents];
+        [self.picker selectRow:self.idxSelectedItem inComponent:0 animated:YES];
+    }
 
 }
 
@@ -177,7 +192,7 @@
 // returns width of column and height of row for each component.
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
-    return self.items[row];
+    return [self.items[row] description];
 }
 
 
