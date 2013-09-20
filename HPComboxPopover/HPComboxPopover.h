@@ -23,6 +23,10 @@
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, weak) id<HPComboxPopoverDelegate> delegate;
 @property (nonatomic, assign) NSInteger idxSelectedItem;
+@property (nonatomic, strong) UIColor *colorCombox;
+@property (nonatomic, strong) UIColor *colorText;
+@property (nonatomic, strong) UIFont *font;
+
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController;
 - (void)dismissFromParentViewController;

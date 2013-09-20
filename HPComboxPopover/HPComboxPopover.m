@@ -36,7 +36,15 @@
     self.backgroundView.layer.cornerRadius = 10.0f;
 	
     self.titleLabel.text = self.title;
-
+    self.titleLabel.textColor = (self.colorText!=nil?self.colorText:[UIColor whiteColor]);
+    self.titleLabel.font = (self.font!=nil?self.font:[UIFont systemFontOfSize:21]);
+ 
+    if (self.colorCombox) {
+        
+        self.backgroundView.backgroundColor = self.colorCombox;
+        self.picker.backgroundColor = self.colorCombox;
+    }
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -188,12 +196,51 @@
 
 #pragma mark - UIPickerViewDelegate
 
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//    
+//    return [self.items[row] description];
+//}
 
-// returns width of column and height of row for each component.
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+- (UIView *)pickerView:(UIPickerView *)pickerView
+            viewForRow:(NSInteger)row
+          forComponent:(NSInteger)component
+           reusingView:(UIView *)view {
     
-    return [self.items[row] description];
+    UIView *customPickerView = view;
+    
+    UILabel *pickerViewLabel;
+    
+    if (customPickerView==nil) {
+        
+        CGRect frame = CGRectMake(0.0, 0.0, self.picker.frame.size.width, 50.0);
+        customPickerView = [[UIView alloc] initWithFrame: frame];
+        
+        pickerViewLabel = [[UILabel alloc] initWithFrame:frame];
+        [pickerViewLabel setTag:1];
+        [pickerViewLabel setTextAlignment:NSTextAlignmentCenter];
+        [pickerViewLabel setBackgroundColor:[UIColor clearColor]];
+        [pickerViewLabel setTextColor:(self.colorText!=nil?self.colorText:[UIColor whiteColor])];
+        [pickerViewLabel setFont:(self.font!=nil?self.font:[UIFont systemFontOfSize:21])];
+        [customPickerView addSubview:pickerViewLabel];
+    }
+    else{
+        
+        for (UIView *view in customPickerView.subviews) {
+            
+            if (view.tag == 1) {
+                
+                pickerViewLabel = (UILabel *)view;
+                break;
+            }
+        }
+    }
+    
+    [pickerViewLabel setText:[self.items[row] description]];
+    
+    return customPickerView;
 }
+
+
 
 
 @end
